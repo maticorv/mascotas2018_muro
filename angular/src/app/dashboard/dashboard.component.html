@@ -1,0 +1,37 @@
+<header>
+    <h1>Mi Perfil</h1>
+</header>
+
+<hr>
+
+<div class="contenedor1">
+    <div class="perfil">
+
+        <img *ngIf="perfil && perfil.imagen" class="fotoPerfil" [src]="safeImage">
+
+        <h4 *ngIf="perfil">{{perfil.nombre}}</h4>
+
+    </div>
+
+    <div class="nvoEstado">
+
+        <textarea rows="3" cols="65" [(ngModel)]="default" (focus)="limpiar()">
+    </textarea>
+
+    </div>
+
+    <div class="botones">
+        <div class="btnconjunto">
+            <button class="btn btn-default" (click)="limpiar('cancelar')">Cancelar</button>
+            <button class="btn btn-success" (click)="publicar()">Publicar</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="estado" *ngFor="let e of estados">
+    <img src="/assets/cerrar.png" (click)="eliminar(e.id)">
+    <p>{{e[detallle]}}</p>
+</div>
